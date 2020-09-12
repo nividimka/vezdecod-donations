@@ -1,6 +1,7 @@
 package com.example.vkdonations
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.create_money_donation_final.*
@@ -13,7 +14,7 @@ class CreateDonationFinalActivity : Activity() {
             finish()
         }
         toolbar.setOnMenuItemClickListener {
-            Toast.makeText(this, "NEXT", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, PostsActivity::class.java))
             true
         }
         tvAuthor.setOnClickListener {

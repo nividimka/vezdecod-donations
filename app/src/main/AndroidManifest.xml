@@ -20,7 +20,10 @@
         <activity android:name=".CreateDonationsOneTime2Activity" />
         <activity android:name=".NewDonationActivity" />
         <activity android:name=".CreateDonationEveryMonthActivity" />
-        <activity android:name=".CreateDonationFinalActivity" android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".CreateDonationFinalActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".PostsActivity" />
     </application>
 
 </manifest>
