@@ -3,8 +3,8 @@ package com.example.vkdonations
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.Window
 import android.view.WindowManager
+import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.post_detalization_activity.*
 
 
@@ -19,5 +19,16 @@ class PostDetalizationActivity : Activity() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
+        val params = toolbar.layoutParams as ConstraintLayout.LayoutParams
+        params.setMargins(0, getStatusBarHeight(), 0, 0)
+        toolbar.layoutParams = params
+    }
+    fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
     }
 }
