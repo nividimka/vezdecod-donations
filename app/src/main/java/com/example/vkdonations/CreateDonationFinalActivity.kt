@@ -20,5 +20,7 @@ class CreateDonationFinalActivity : Activity() {
             Toast.makeText(this, "Заглушка", Toast.LENGTH_LONG).show()
         }
         etPublication.requestFocus()
+        progress.isEnabled = false
+        helpButton.isEnabled = false
     }
 }
