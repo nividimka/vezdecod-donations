@@ -14,6 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.VKDonations.Translucent" parent="Theme.VkDonations">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
     <style name="Theme.VkButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="backgroundTint">#4986CC</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -28,6 +33,10 @@
         <item name="backgroundTint">@color/white</item>
         <item name="cornerRadius">10dp</item>
         <item name="rippleColor">#33FFFFFF</item>
+    </style>
+
+    <style name="Theme.VkButton.Green" parent="Theme.VkButton">
+        <item name="backgroundTint">#4BB34B</item>
     </style>
 
     <style name="text">
@@ -54,6 +63,7 @@
         <item name="android:letterSpacing">-0.01</item>
         <item name="android:textColor">#6D7885</item>
     </style>
+
     <style name="et_content">
         <item name="android:background">@drawable/bg_et_gray</item>
         <item name="android:padding">12dp</item>

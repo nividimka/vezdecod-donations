@@ -24,6 +24,8 @@
             android:name=".CreateDonationFinalActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".PostsActivity" />
+        <activity android:name=".PostDetalizationActivity"
+            android:theme="@style/Theme.VKDonations.Translucent"/>
     </application>
 
 </manifest>
