@@ -23,13 +23,13 @@ class PostDetalizationActivity : Activity() {
         val params = toolbar.layoutParams as ConstraintLayout.LayoutParams
         params.setMargins(0, getStatusBarHeight(), 0, 0)
         toolbar.layoutParams = params
+        donationViewBig.maxDonations = DonationHolder.donation?.priceValue?:0.0
         val anim = ValueAnimator.ofFloat(0f, 1f)
         anim.addUpdateListener {
             val current = it.animatedValue as Float
-            donationViewBig.currentDonations = current.toDouble()*10000
+            donationViewBig.currentDonations = current.toDouble()*(DonationHolder.donation?.priceValue?:0.0)
         }
         anim.duration = 15000
-        anim.repeatCount = ValueAnimator.INFINITE
         anim.start()
 
     }

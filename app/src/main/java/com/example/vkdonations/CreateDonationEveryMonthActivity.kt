@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.create_money_donation_every_month.*
 import kotlinx.android.synthetic.main.create_money_donation_one_time1.clPictureLoader
 import kotlinx.android.synthetic.main.create_money_donation_one_time1.etPaymentCard
@@ -32,8 +33,31 @@ class CreateDonationEveryMonthActivity : Activity() {
             finish()
         }
         etPrice.addTextChangedListener(NumberTextWatcherForThousand(etPrice))
+        etPrice.addTextChangedListener(afterTextChanged = {
+            checkValidation()
+        })
         confirmButton.setOnClickListener {
+            DonationHolder.donation = Donation(
+                priceValue = etPrice.text.toString()
+                    .replace(" ", "")
+                    .replace("₽", "").toDouble()
+            )
             startActivity(Intent(this, CreateDonationFinalActivity::class.java))
         }
+        checkValidation()
     }
+
+    private fun checkValidation() {
+        if (etPrice.text.toString()
+                .replace(" ", "")
+                .replace("₽", "").isEmpty()
+        ) {
+            confirmButton.isEnabled = false
+            return
+        }
+
+        confirmButton.isEnabled = true
+    }
+
+
 }

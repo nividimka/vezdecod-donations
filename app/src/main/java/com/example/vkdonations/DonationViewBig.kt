@@ -23,10 +23,10 @@ class DonationViewBig @JvmOverloads constructor(
     var currentDonations: Double = 100.0
         set(value) {
             field = value
-            setCurrentDonationsInternal(value)
+            setCurrentDonationsInternal()
         }
-    val currentTextPaint: Paint
-    val maxTextPaint: Paint
+    private val currentTextPaint: Paint
+    private val maxTextPaint: Paint
 
     init {
         inflate(context, R.layout.donation_view_big, this)
@@ -34,10 +34,25 @@ class DonationViewBig @JvmOverloads constructor(
         maxTextPaint = maxTextProgress.paint
     }
 
-    fun setCurrentDonationsInternal(value: Double) {
+    private fun setCurrentDonationsInternal() {
         drawCurrentProgress()
-        drawCurrentText()
-        drawMaxText()
+        if(currentDonations!=maxDonations) {
+            fullPriceAchived.visibility = View.GONE
+            drawCurrentText()
+            drawMaxText()
+        }else{
+            drawFullDonations()
+        }
+    }
+
+    private fun drawFullDonations() {
+        maxTextProgress.visibility = View.GONE
+        maxTextProgressOutside.visibility = View.GONE
+        currentPriceProgress.visibility = View.GONE
+        currentPriceOutsideProgress.visibility = View.GONE
+        fullPriceAchived.visibility = View.VISIBLE
+        val text = getFormattedPrice(maxDonations) + " собраны!"
+        fullPriceAchived.text = text
     }
 
     private fun drawMaxText() {

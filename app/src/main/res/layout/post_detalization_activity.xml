@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_back_blue" />
+        app:navigationIcon="@drawable/ic_back_white" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"

@@ -20,7 +20,7 @@
     </style>
 
     <style name="Theme.VkButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="backgroundTint">#4986CC</item>
+        <item name="backgroundTint">@color/background_button_blue</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="cornerRadius">10dp</item>
         <item name="rippleColor">#33FFFFFF</item>
