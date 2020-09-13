@@ -1,6 +1,7 @@
 package com.example.vkdonations
 
 
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.os.Bundle
 import android.view.WindowManager
@@ -22,6 +23,15 @@ class PostDetalizationActivity : Activity() {
         val params = toolbar.layoutParams as ConstraintLayout.LayoutParams
         params.setMargins(0, getStatusBarHeight(), 0, 0)
         toolbar.layoutParams = params
+        val anim = ValueAnimator.ofFloat(0f, 1f)
+        anim.addUpdateListener {
+            val current = it.animatedValue as Float
+            donationViewBig.currentDonations = current.toDouble()*10000
+        }
+        anim.duration = 15000
+        anim.repeatCount = ValueAnimator.INFINITE
+        anim.start()
+
     }
     fun getStatusBarHeight(): Int {
         var result = 0
